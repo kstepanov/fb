@@ -1,0 +1,21 @@
+<form action="/" method="POST">
+  <%= Rack::Csrf.tag(env) %>
+  <div>
+    <label for="name">Full Name</label>
+    <input type="text" name="name" value="<%= req["name"] %>" />
+  </div>
+  <div>
+    <label for="email">Mobile Number</label>
+    <input type="text" name="mobile" value="<%= req["mobile"] %>" />
+  </div>
+  <div>
+    <label for="email">Email address</label>
+    <input type="text" name="email" value="<%= req["email"] %>" />
+  </div>
+  <div>
+    <label for="email">Email confirmation</label>
+    <input type="text" name="email_confirmation" />
+  </div>
+  
+  <input type="submit" value="Send" />
+</form>

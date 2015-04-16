@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%= Rack::Csrf.metatag(env) %>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/application.css">
+  </head>
+  <body>
+    <%= content %>
+  </body>
+</html>
