@@ -59,20 +59,10 @@ Cuba.define do
       user = User.new( name: req["name"], mobile: req["mobile"], email: req["email"], email_confirmation: req["email_confirmation"] )
       
       if user.save
-        puts "saved"
         res.redirect "/thank-you"
       else
-        puts "error"
         render("home")
       end
-
-      #on param("name"), param("mobile"), param("email"), param("email_confirmation") do |name, mobile, email, email_confirmation|
-        
-      #end
-      
-      #on true do
-      #  render("home", {:errors => {}} )
-      #end
 
     end
   end
