@@ -11,5 +11,6 @@ gem "spreadsheet"
 
 group :development do
   gem "capistrano", '~> 3.4.0'
-  #gem "rvm-capistrano"
+  gem 'capistrano-rvm'
+  gem 'capistrano-bundler'
 end
