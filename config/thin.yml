@@ -1,7 +1,8 @@
 --- 
 user: www-data
 group: www-data
-#pid: tmp/pids/thin.pid
+pid: tmp/pids/thin.pid
+port: 5000
 timeout: 30
 wait: 30
 log: log/thin.log
@@ -13,6 +14,6 @@ servers: 1
 threaded: true
 no-epoll: true
 daemonize: true
-socket: tmp/sockets/thin.sock
+#socket: tmp/sockets/thin.sock
 chdir: /home/gap/www/current
 tag: gap_server
