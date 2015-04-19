@@ -1,21 +1,58 @@
-<form action="/" method="POST">
-  <%= Rack::Csrf.tag(env) %>
-  <div>
-    <label for="name">Full Name</label>
-    <input type="text" name="name" value="<%= req["name"] %>" />
+<div class="left-part">
+  <a href="/" class="logo sprite sprite-logo"></a>
+  <h1>BE IN THE KNOW</h1>
+
+  <p>You’ll be the first to hear about new arrivals, trends and exclusive offers when you join the Gap mailing list.
+    <br> 
+  Sign up today to get a RM30 e-voucher!</p>
+
+
+  <div id="like-wrap">
+    <div class="fb-like" data-href="http://gapnew.com/" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
   </div>
-  <div>
-    <label for="email">Mobile Number</label>
-    <input type="text" name="mobile" value="<%= req["mobile"] %>" />
-  </div>
-  <div>
-    <label for="email">Email address</label>
-    <input type="text" name="email" value="<%= req["email"] %>" />
-  </div>
-  <div>
-    <label for="email">Email confirmation</label>
-    <input type="text" name="email_confirmation" />
-  </div>
-  
-  <input type="submit" value="Send" />
-</form>
+
+
+
+  <form action="/" method="POST" id="send-form">
+    <%= Rack::Csrf.tag(env) %>
+    
+    <div class="form-line">
+      <label for="name">Name:</label>
+      <input id="name-field" type="text" name="name" placeholder="Please, enter your name" value="<%= req["name"] %>" data-err-type="field" data-validation-msg="name"/>
+      <span class="error-field"></span>
+    </div>
+
+    <div class="form-line">
+      <label for="mobile">Mobile Number:</label>
+      <input id="mobile-field" type="text" name="mobile" placeholder="Please, enter your phone number" value="<%= req["mobile"] %>" data-err-type="mobile" data-validation-msg="mobile"/>
+      <span class="error-field"></span>
+    </div>
+    
+    <div class="form-line">
+      <label for="email">Email address:</label>
+      <input id="email-field" type="text" name="email" placeholder="Please, enter your email address" value="<%= req["email"] %>" data-err-type="email" data-validation-msg="email"/>
+      <span class="error-field"></span>
+    </div>
+    
+    <div class="form-line">
+      <label for="email_confirmation">Please confirm your email address:</label>
+      <input id="email_confirmation-field" type="text" name="email_confirmation" placeholder="Please confirm your email" data-err-type="email_confirmation" data-bind="#email-field" data-validation-msg="email_confirmation"/>
+      <span class="error-field"></span>
+    </div>
+    
+    <div class="form-line">
+      <input type="submit" value="UPLOAD &nbsp; &#9654;"/>
+    </div>
+    
+    <label>
+      <input type="checkbox" id="terms" data-err-type="terms" data-validation-msg="terms">
+      <span>Tick here to accept Terms and Conditions</span>
+      <span class="error-field"></span>
+    </label>
+    <div class="clear"></div>
+
+  </form>
+
+</div>
+<div class="right-part sprite sprite-jeans"></div>
+<div class="clear"></div>

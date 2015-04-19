@@ -1,10 +1,23 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta content='text/html;charset=UTF-8' http-equiv='content-type'>
+    <title>GAP</title>
     <%= Rack::Csrf.metatag(env) %>
+
+    <meta content="someId" property="fb:app_id"/>
+    <meta content="website" property="og:type"/>
+    <meta content="http://gapnew.com/" property="og:url"/>
+    <meta content="GAP" property="og:title"/>
+    <meta content="GAP description" property="og:description"/>
+    <meta content="http://gapnew.com/images/logo.png" property="og:image"/>
+
     <link rel="stylesheet" type="text/css" href="/stylesheets/application.css">
   </head>
   <body>
-    <%= content %>
+    <div class="content">
+      <%= content %>
+    </div>
+    <script src="/javascripts/app.js"></script>
   </body>
 </html>
