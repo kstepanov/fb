@@ -125,48 +125,52 @@ app.init();
 
 
 var appId = "338703359653019";
-(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId="+appId+"&version=v2.0";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
-
 window.fbAsyncInit = function() {
+  FB.init({
+    appId      : appId,
+    xfbml      : true,
+    version    : 'v2.3'
+  });
+
   FB.Event.subscribe('edge.create', function(){
     app.userLikedCallback();
   });
 
-  FB.api({
-    method: "pages.isFan",
-    page_id: appId,
-  }, function(res) {
-    if (res == true) {
-      console.log('user_id likes the Application.');
-      app.userLikedCallback();
-    } else if(res.error_code) {
-      console.error(res);
+  function onLogin(response) {
+    if (response.status == 'connected') {
+      FB.api({
+        method: "pages.isFan",
+        page_id: appId,
+      }, function(res) {
+        if (res == true) {
+          console.log('user_id likes the Application.');
+          app.userLikedCallback();
+        } else if(res.error_code) {
+          console.error(res);
+        } else {
+          console.log("user_id doesn't like the Application.");
+        }
+      });
+    }
+  }
+
+  FB.getLoginStatus(function(response){
+    if (response.status == 'connected') {
+      onLogin(response);
     } else {
-      console.log("user_id doesn't like the Application.");
+      FB.login(function(response) {
+        onLogin(response);
+      }, {scope: 'user_friends, email'});
     }
   });
-
-
-  FB.getLoginStatus(function(response) {
-      // Check login status on load, and if the user is
-      // already logged in, go directly to the welcome message.
-      if (response.status == 'connected') {
-        // onLogin(response);
-      } else {
-        // Otherwise, show Login dialog first.
-        FB.login(function(response) {
-          // onLogin(response);
-        }, {scope: 'user_friends, email'});
-      }
-  });
-
 };
 
+(function(d, s, id){
+   var js, fjs = d.getElementsByTagName(s)[0];
+   if (d.getElementById(id)) {return;}
+   js = d.createElement(s); js.id = id;
+   js.src = "//connect.facebook.net/en_US/sdk.js";
+   fjs.parentNode.insertBefore(js, fjs);
+ }(document, 'script', 'facebook-jssdk'));
 
 
