@@ -124,7 +124,7 @@ var app = {
 app.init();
 
 
-var appId = "someID";
+var appId = "338703359653019";
 (function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
@@ -144,8 +144,9 @@ window.fbAsyncInit = function() {
   }, function(res) {
     if (res == true) {
       console.log('user_id likes the Application.');
+      app.userLikedCallback();
     } else if(res.error_code) {
-      console.error(res.error_msg);
+      console.error(res);
     } else {
       console.log("user_id doesn't like the Application.");
     }
