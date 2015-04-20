@@ -8,8 +8,8 @@ require 'spreadsheet'
 Cuba.use Rack::Static, urls: %w(/stylesheets /images /javascripts), root: "public"
 Cuba.use Rack::ShowExceptions
 Cuba.use Rack::Session::Cookie, :secret => "hBw7h23GtHhe9vQH5zAvzACurjfb59mSpM6RJgjPNjhuY2ZeKSDfZDc6H2Duf7JQNdczFWtPnCkqsmFSbqhUwVe8Yzdu2MMnTwDA"
-Cuba.use Rack::Protection
-Cuba.use Rack::Protection::RemoteReferrer
+#Cuba.use Rack::Protection
+#Cuba.use Rack::Protection::RemoteReferrer
 #Cuba.use Rack::Csrf, raise: true, :skip => ['POST:/']
 Cuba.plugin Cuba::Render
 
