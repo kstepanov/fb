@@ -138,17 +138,9 @@ window.fbAsyncInit = function() {
 
   function onLogin(response) {
     if (response.status == 'connected') {
-      FB.api({
-        method: "pages.isFan",
-        page_id: appId,
-      }, function(res) {
-        if (res == true) {
-          console.log('user_id likes the Application.');
-          app.userLikedCallback();
-        } else if(res.error_code) {
-          console.error(res);
-        } else {
-          console.log("user_id doesn't like the Application.");
+      FB.api("me/likes/"+appId, function (response) {
+        if (response && !response.error) {
+          console.log(response)
         }
       });
     }
@@ -160,7 +152,7 @@ window.fbAsyncInit = function() {
     } else {
       FB.login(function(response) {
         onLogin(response);
-      }, {scope: 'user_friends, email'});
+      }, {scope: 'user_likes, email'});
     }
   });
 };

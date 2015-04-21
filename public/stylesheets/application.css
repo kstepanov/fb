@@ -187,8 +187,9 @@ p{
        -moz-box-sizing: border-box;
             box-sizing: border-box;
     /*float: left;*/
-    width: 516px;
-    padding: 58px 0 0 58px;
+    /*width: 516px;*/
+    width: 480px;
+    padding: 58px 0 0 40px;
 }
 
 .right-part{
