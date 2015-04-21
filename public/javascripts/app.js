@@ -137,13 +137,15 @@ window.fbAsyncInit = function() {
   });
 
   function onLogin(response) {
-    if (response.status == 'connected') {
-      FB.api("me/likes/"+appId, function (response) {
-        if (response && !response.error) {
-          console.log(response)
-        }
-      });
-    }
+    console.log(response);
+    app.userLikedCallback();
+    // if (response.status == 'connected') {
+    //   FB.api("me/likes/"+appId, function (response) {
+    //     if (response && !response.error) {
+    //       console.log(response);
+    //     }
+    //   });
+    // }
   }
 
   FB.getLoginStatus(function(response){
