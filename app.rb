@@ -8,9 +8,9 @@ require 'spreadsheet'
 Cuba.use Rack::Static, urls: %w(/stylesheets /images /javascripts), root: "public"
 Cuba.use Rack::ShowExceptions
 Cuba.use Rack::Session::Cookie, :secret => "hBw7h23GtHhe9vQH5zAvzACurjfb59mSpM6RJgjPNjhuY2ZeKSDfZDc6H2Duf7JQNdczFWtPnCkqsmFSbqhUwVe8Yzdu2MMnTwDA"
-Cuba.use Rack::Protection
-Cuba.use Rack::Protection::RemoteReferrer
-Cuba.use Rack::Csrf, raise: true, :skip => ['POST:/']
+#Cuba.use Rack::Protection
+#Cuba.use Rack::Protection::RemoteReferrer
+#Cuba.use Rack::Csrf, raise: true, :skip => ['POST:/']
 Cuba.plugin Cuba::Render
 
 require_relative "models/user"
@@ -19,6 +19,7 @@ require_relative "lib/string_ext"
 Cuba.define do
   on get do
     on root do
+      res.headers["X-Frame-Options"] = "GOFORIT"
       render("home")
     end
 
@@ -55,10 +56,12 @@ Cuba.define do
   
   on post do
     on root do
+      res.headers["X-Frame-Options"] = "GOFORIT"
 
       user = User.new( name: req["name"], mobile: req["mobile"], email: req["email"], email_confirmation: req["email_confirmation"] )
       
       if user.save
+        #res.headers["Content-Transfer-Encoding"] = "binary"
         res.redirect "/thank-you"
       else
         render("home")
