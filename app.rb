@@ -62,7 +62,8 @@ Cuba.define do
       
       if user.save
         #res.headers["Content-Transfer-Encoding"] = "binary"
-        res.redirect "/thank-you"
+        #res.redirect "/thank-you"
+        render("thank-you")
       else
         render("home")
       end
@@ -71,3 +72,7 @@ Cuba.define do
   end
 
 end
+
+
+#htpasswd -cbd htpasswd 
+#gap SatrajitGAP
