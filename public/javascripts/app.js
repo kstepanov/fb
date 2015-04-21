@@ -61,10 +61,10 @@ var app = {
     },
     errMsgs: {
       by_default: "This field is required",
-      name: "Please, enter valid name",
-      mobile: "Please, enter valid mobile number",
-      email: "Please, enter valid email address",
-      email_confirmation: "Email addresses do not match. Please, correct emails address",
+      name: "Please enter valid name",
+      mobile: "Please enter valid mobile number",
+      email: "Please enter valid email address",
+      email_confirmation: "Email addresses do not match. Please correct emails address",
       terms: "You need accept terms of use!"
     }
   },
