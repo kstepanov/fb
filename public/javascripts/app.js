@@ -57,14 +57,14 @@ var app = {
     rules: {
       field: new RegExp(/\S/),
       email: new RegExp(/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/),
-      mobile: new RegExp(/\S/)
+      mobile: new RegExp(/^(\+|\d)\d\d*$/)
     },
     errMsgs: {
       by_default: "This field is required",
       name: "Please enter valid name",
       mobile: "Please enter valid mobile number",
       email: "Please enter valid email address",
-      email_confirmation: "Email addresses do not match. Please correct emails address",
+      email_confirmation: "Email addresses do not match. Please correct the email address",
       terms: "You need accept terms of use!"
     }
   },
@@ -86,7 +86,11 @@ var app = {
         if(this.form.rules[errType]){
           reg = this.form.rules[errType];
         } else if (errType=="email_confirmation") {
-          reg = new RegExp(this.form.formEl.querySelector( item.getAttribute('data-bind') ).value);
+          try{
+            reg = new RegExp(this.form.formEl.querySelector( item.getAttribute('data-bind') ).value);
+          } catch(e){
+            console.error(e);
+          }
         } else if (errType=="terms") {
           itemVal = (item.checked) ? item.checked : "error";
           reg = new RegExp(item.checked);
