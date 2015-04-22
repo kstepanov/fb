@@ -19,6 +19,7 @@ require_relative "lib/string_ext"
 Cuba.define do
   on get do
     on root do
+      @user = User.new
       res.headers["X-Frame-Options"] = "GOFORIT"
       render("home")
     end
@@ -58,9 +59,9 @@ Cuba.define do
     on root do
       res.headers["X-Frame-Options"] = "GOFORIT"
 
-      user = User.new( name: req["name"], mobile: req["mobile"], email: req["email"], email_confirmation: req["email_confirmation"] )
+      @user = User.new( name: req["name"], mobile: req["mobile"], email: req["email"], email_confirmation: req["email_confirmation"] )
       
-      if user.save
+      if @user.save
         #res.headers["Content-Transfer-Encoding"] = "binary"
         #res.redirect "/thank-you"
         render("thank-you")

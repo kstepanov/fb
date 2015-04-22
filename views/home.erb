@@ -11,8 +11,6 @@
     <div class="fb-like" data-href="http://gapnew.com/" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
   </div>
 
-
-
   <form action="/" method="POST" id="send-form">
     <%= Rack::Csrf.tag(env) %>
     
@@ -30,8 +28,8 @@
     
     <div class="form-line">
       <label for="email">Email address:</label>
-      <input id="email-field" type="text" name="email" placeholder="Please enter your email address" value="<%= req["email"] %>" data-err-type="email" data-validation-msg="email"/>
-      <span class="error-field"></span>
+      <input id="email-field" type="text" name="email" placeholder="Please enter your email address" value="<%= req["email"] %>" data-err-type="email" data-validation-msg="email" class="<%= @user.errors[:email][:class] %>"/>
+      <span class="error-field"><%= @user.errors[:email][:message] %></span>
     </div>
     
     <div class="form-line">
