@@ -121,6 +121,8 @@ var app = {
         if( !this.validateForm(this.form.formEl) )
           e.preventDefault();
       }.bind(this);
+
+      this.userLikedCallback();
     }
   }
 };
@@ -134,32 +136,6 @@ window.fbAsyncInit = function() {
     appId      : appId,
     xfbml      : true,
     version    : 'v2.3'
-  });
-
-  FB.Event.subscribe('edge.create', function(){
-    app.userLikedCallback();
-  });
-
-  function onLogin(response) {
-    console.log(response);
-    app.userLikedCallback();
-    // if (response.status == 'connected') {
-    //   FB.api("me/likes/"+appId, function (response) {
-    //     if (response && !response.error) {
-    //       console.log(response);
-    //     }
-    //   });
-    // }
-  }
-
-  FB.getLoginStatus(function(response){
-    if (response.status == 'connected') {
-      onLogin(response);
-    } else {
-      FB.login(function(response) {
-        onLogin(response);
-      }, {scope: 'user_likes, email'});
-    }
   });
 };
 
