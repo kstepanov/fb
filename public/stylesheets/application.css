@@ -135,7 +135,8 @@ body{
 }
 .content{
     position: relative;
-    width: 840px;
+    overflow: hidden;
+    width: 810px;
     margin: auto;
 }
 
@@ -188,7 +189,7 @@ p{
             box-sizing: border-box;
     /*float: left;*/
     /*width: 516px;*/
-    width: 480px;
+    width: 440px;
     padding: 58px 0 0 40px;
 }
 
