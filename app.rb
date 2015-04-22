@@ -58,14 +58,17 @@ Cuba.define do
   on post do
     on root do
       res.headers["X-Frame-Options"] = "GOFORIT"
-
-      @user = User.new( name: req["name"], mobile: req["mobile"], email: req["email"], email_confirmation: req["email_confirmation"] )
       
-      if @user.save
-        #res.headers["Content-Transfer-Encoding"] = "binary"
-        #res.redirect "/thank-you"
-        render("thank-you")
+      if ["name", "mobile", "email", "email_confirmation"].any?{ |field| !req[field].nil? }
+        @user = User.new( name: req["name"], mobile: req["mobile"], email: req["email"], email_confirmation: req["email_confirmation"] )
+        
+        if @user.save
+          render("thank-you")
+        else
+          render("home")
+        end
       else
+        @user = User.new
         render("home")
       end
 
