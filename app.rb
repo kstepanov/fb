@@ -61,8 +61,6 @@ Cuba.define do
       
       req["interests"] = req["interests"].join(",") unless req["interests"].nil?
 
-      puts req["interests"].inspect
-
       if ["name", "mobile", "email", "email_confirmation"].any?{ |field| !req[field].nil? }
         @user = User.new( name: req["name"], 
                           mobile: req["mobile"], 
