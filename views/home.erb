@@ -37,6 +37,54 @@
       <input id="email_confirmation-field" type="text" name="email_confirmation" placeholder="Please confirm your email address" data-err-type="email_confirmation" data-bind="#email-field" data-validation-msg="email_confirmation"/>
       <span class="error-field"></span>
     </div>
+
+    <div class="form-line">
+      <label for="interests">Interests:</label>
+      <input type="checkbox" name="interests[]" value="Games" />Games<br />
+      <input type="checkbox" name="interests[]" value="Live events" />Live events<br />
+      <input type="checkbox" name="interests[]" value="Movies" />Movies<br />
+      <input type="checkbox" name="interests[]" value="Music" />Music<br />
+      <input type="checkbox" name="interests[]" value="Reading" />Reading<br />
+      <input type="checkbox" name="interests[]" value="Fitness" />Fitness<br />
+      <input type="checkbox" name="interests[]" value="Arts" />Arts<br />
+      <input type="checkbox" name="interests[]" value="Travel" />Travel<br />
+      
+      <span class="error-field"></span>
+    </div>
+
+    <div class="form-line">
+      <label for="address">Address:</label>
+      <input id="address-field" type="text" name="address" placeholder="Please enter your address" value="<%= req["address"] %>" data-err-type="field" data-validation-msg="address"/>
+      <span class="error-field"></span>
+    </div>
+
+    <div class="form-line">
+      <label for="country">Country:</label>
+      
+      <select name="country">
+        <option value="">Please select your country</option>
+        <option value="volvo">Volvo</option>
+        <option value="saab">Saab</option>
+        <option value="mercedes">Mercedes</option>
+        <option value="audi">Audi</option>
+      </select>
+
+      <span class="error-field"></span>
+    </div>
+
+    <div class="form-line">
+      <label for="city">City:</label>
+      
+      <select name="city">
+        <option value="">Please select your city</option>
+        <option value="volvo">Volvo</option>
+        <option value="saab">Saab</option>
+        <option value="mercedes">Mercedes</option>
+        <option value="audi">Audi</option>
+      </select>
+
+      <span class="error-field"></span>
+    </div>
     
     <div class="form-line">
       <input type="submit" value="UPLOAD &nbsp; &#9654;"/>

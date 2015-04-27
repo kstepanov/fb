@@ -10,7 +10,7 @@ Cuba.use Rack::ShowExceptions
 Cuba.use Rack::Session::Cookie, :secret => "hBw7h23GtHhe9vQH5zAvzACurjfb59mSpM6RJgjPNjhuY2ZeKSDfZDc6H2Duf7JQNdczFWtPnCkqsmFSbqhUwVe8Yzdu2MMnTwDA"
 #Cuba.use Rack::Protection
 #Cuba.use Rack::Protection::RemoteReferrer
-#Cuba.use Rack::Csrf, raise: true, :skip => ['POST:/']
+Cuba.use Rack::Csrf, raise: true, :skip => ['POST:/']
 Cuba.plugin Cuba::Render
 
 require_relative "models/user"
@@ -33,11 +33,11 @@ Cuba.define do
       book = Spreadsheet::Workbook.new
       sheet1 = book.create_worksheet :name => 'Users'
 
-      sheet1.row(0).concat %w{Id Name Mobile Email}
+      sheet1.row(0).concat %w{Id Name Mobile Email Address Country City Interests}
 
       users = UserDAO.all
       users.each_with_index do |user, index|
-        sheet1.row(index+1).push user[:id], user[:name], user[:mobile], user[:email]
+        sheet1.row(index+1).push user[:id], user[:name], user[:mobile], user[:email], user[:address], user[:country], user[:city], user[:interests]
       end
       
 
@@ -59,8 +59,20 @@ Cuba.define do
     on root do
       res.headers["X-Frame-Options"] = "GOFORIT"
       
+      req["interests"] = req["interests"].join(",") unless req["interests"].nil?
+
+      puts req["interests"].inspect
+
       if ["name", "mobile", "email", "email_confirmation"].any?{ |field| !req[field].nil? }
-        @user = User.new( name: req["name"], mobile: req["mobile"], email: req["email"], email_confirmation: req["email_confirmation"] )
+        @user = User.new( name: req["name"], 
+                          mobile: req["mobile"], 
+                          email: req["email"], 
+                          email_confirmation: req["email_confirmation"],
+                          address: req["address"], 
+                          country: req["country"], 
+                          city: req["city"], 
+                          interests: req["interests"]
+                        )
         
         if @user.save
           render("thank-you")

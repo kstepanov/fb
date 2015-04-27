@@ -5,13 +5,17 @@ class UserDAO < DAO
     primary_key :id
     String :name
     String :mobile
+    String :address
+    String :country
+    String :city
+    String :interests
     String :email, index: true, unique: true
     Integer :created_at
   end unless db.table_exists?(:users)
   
   class << self
     def save(user)
-      db[:users].insert name: user.name, mobile: user.mobile, email: user.email, created_at: user.created_at.to_i
+      db[:users].insert name: user.name, mobile: user.mobile, email: user.email, address:user.address, country:user.country, city:user.city, interests:user.interests, created_at: user.created_at.to_i
     end
 
     def delete_all

@@ -5,8 +5,8 @@ require_relative "../lib/string_ext"
 require_relative "../db/user_dao"
 
 class User < Model
-  attr_accessor :name, :mobile, :email, :email_confirmation, :errors
-  
+  attr_accessor :name, :mobile, :email, :email_confirmation, :address, :country, :city, :interests, :errors
+
   def initialize(options = {})
     @errors = { name:{ :message => "" },
                 mobile:{ :message => "" },
