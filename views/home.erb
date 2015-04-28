@@ -39,66 +39,575 @@
     </div>
 
     <div class="form-line">
-      <label for="interests">Interests:</label>
-      <input type="checkbox" name="interests[]" value="Games" />Games<br />
-      <input type="checkbox" name="interests[]" value="Live events" />Live events<br />
-      <input type="checkbox" name="interests[]" value="Movies" />Movies<br />
-      <input type="checkbox" name="interests[]" value="Music" />Music<br />
-      <input type="checkbox" name="interests[]" value="Reading" />Reading<br />
-      <input type="checkbox" name="interests[]" value="Fitness" />Fitness<br />
-      <input type="checkbox" name="interests[]" value="Arts" />Arts<br />
-      <input type="checkbox" name="interests[]" value="Travel" />Travel<br />
-      
-      <span class="error-field"></span>
-    </div>
-
-    <div class="form-line">
-      <label for="address">Address:</label>
+      <label for="address">Home Address:</label>
       <input id="address-field" type="text" name="address" placeholder="Please enter your address" value="<%= req["address"] %>" data-err-type="field" data-validation-msg="address"/>
       <span class="error-field"></span>
     </div>
 
     <div class="form-line">
       <label for="country">Country:</label>
-      
-      <select name="country">
+      <select name="country" data-err-type="field" data-validation-msg="country">
         <option value="">Please select your country</option>
-        <option value="volvo">Volvo</option>
-        <option value="saab">Saab</option>
-        <option value="mercedes">Mercedes</option>
-        <option value="audi">Audi</option>
+        <option value="United States">United States</option> 
+        <option value="United Kingdom">United Kingdom</option> 
+        <option value="Afghanistan">Afghanistan</option> 
+        <option value="Albania">Albania</option> 
+        <option value="Algeria">Algeria</option> 
+        <option value="American Samoa">American Samoa</option> 
+        <option value="Andorra">Andorra</option> 
+        <option value="Angola">Angola</option> 
+        <option value="Anguilla">Anguilla</option> 
+        <option value="Antarctica">Antarctica</option> 
+        <option value="Antigua and Barbuda">Antigua and Barbuda</option> 
+        <option value="Argentina">Argentina</option> 
+        <option value="Armenia">Armenia</option> 
+        <option value="Aruba">Aruba</option> 
+        <option value="Australia">Australia</option> 
+        <option value="Austria">Austria</option> 
+        <option value="Azerbaijan">Azerbaijan</option> 
+        <option value="Bahamas">Bahamas</option> 
+        <option value="Bahrain">Bahrain</option> 
+        <option value="Bangladesh">Bangladesh</option> 
+        <option value="Barbados">Barbados</option> 
+        <option value="Belarus">Belarus</option> 
+        <option value="Belgium">Belgium</option> 
+        <option value="Belize">Belize</option> 
+        <option value="Benin">Benin</option> 
+        <option value="Bermuda">Bermuda</option> 
+        <option value="Bhutan">Bhutan</option> 
+        <option value="Bolivia">Bolivia</option> 
+        <option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option> 
+        <option value="Botswana">Botswana</option> 
+        <option value="Bouvet Island">Bouvet Island</option> 
+        <option value="Brazil">Brazil</option> 
+        <option value="British Indian Ocean Territory">British Indian Ocean Territory</option> 
+        <option value="Brunei Darussalam">Brunei Darussalam</option> 
+        <option value="Bulgaria">Bulgaria</option> 
+        <option value="Burkina Faso">Burkina Faso</option> 
+        <option value="Burundi">Burundi</option> 
+        <option value="Cambodia">Cambodia</option> 
+        <option value="Cameroon">Cameroon</option> 
+        <option value="Canada">Canada</option> 
+        <option value="Cape Verde">Cape Verde</option> 
+        <option value="Cayman Islands">Cayman Islands</option> 
+        <option value="Central African Republic">Central African Republic</option> 
+        <option value="Chad">Chad</option> 
+        <option value="Chile">Chile</option> 
+        <option value="China">China</option> 
+        <option value="Christmas Island">Christmas Island</option> 
+        <option value="Cocos (Keeling) Islands">Cocos (Keeling) Islands</option> 
+        <option value="Colombia">Colombia</option> 
+        <option value="Comoros">Comoros</option> 
+        <option value="Congo">Congo</option> 
+        <option value="Congo, The Democratic Republic of The">Congo, The Democratic Republic of The</option> 
+        <option value="Cook Islands">Cook Islands</option> 
+        <option value="Costa Rica">Costa Rica</option> 
+        <option value="Cote D'ivoire">Cote D'ivoire</option> 
+        <option value="Croatia">Croatia</option> 
+        <option value="Cuba">Cuba</option> 
+        <option value="Cyprus">Cyprus</option> 
+        <option value="Czech Republic">Czech Republic</option> 
+        <option value="Denmark">Denmark</option> 
+        <option value="Djibouti">Djibouti</option> 
+        <option value="Dominica">Dominica</option> 
+        <option value="Dominican Republic">Dominican Republic</option> 
+        <option value="Ecuador">Ecuador</option> 
+        <option value="Egypt">Egypt</option> 
+        <option value="El Salvador">El Salvador</option> 
+        <option value="Equatorial Guinea">Equatorial Guinea</option> 
+        <option value="Eritrea">Eritrea</option> 
+        <option value="Estonia">Estonia</option> 
+        <option value="Ethiopia">Ethiopia</option> 
+        <option value="Falkland Islands (Malvinas)">Falkland Islands (Malvinas)</option> 
+        <option value="Faroe Islands">Faroe Islands</option> 
+        <option value="Fiji">Fiji</option> 
+        <option value="Finland">Finland</option> 
+        <option value="France">France</option> 
+        <option value="French Guiana">French Guiana</option> 
+        <option value="French Polynesia">French Polynesia</option> 
+        <option value="French Southern Territories">French Southern Territories</option> 
+        <option value="Gabon">Gabon</option> 
+        <option value="Gambia">Gambia</option> 
+        <option value="Georgia">Georgia</option> 
+        <option value="Germany">Germany</option> 
+        <option value="Ghana">Ghana</option> 
+        <option value="Gibraltar">Gibraltar</option> 
+        <option value="Greece">Greece</option> 
+        <option value="Greenland">Greenland</option> 
+        <option value="Grenada">Grenada</option> 
+        <option value="Guadeloupe">Guadeloupe</option> 
+        <option value="Guam">Guam</option> 
+        <option value="Guatemala">Guatemala</option> 
+        <option value="Guinea">Guinea</option> 
+        <option value="Guinea-bissau">Guinea-bissau</option> 
+        <option value="Guyana">Guyana</option> 
+        <option value="Haiti">Haiti</option> 
+        <option value="Heard Island and Mcdonald Islands">Heard Island and Mcdonald Islands</option> 
+        <option value="Holy See (Vatican City State)">Holy See (Vatican City State)</option> 
+        <option value="Honduras">Honduras</option> 
+        <option value="Hong Kong">Hong Kong</option> 
+        <option value="Hungary">Hungary</option> 
+        <option value="Iceland">Iceland</option> 
+        <option value="India">India</option> 
+        <option value="Indonesia">Indonesia</option> 
+        <option value="Iran, Islamic Republic of">Iran, Islamic Republic of</option> 
+        <option value="Iraq">Iraq</option> 
+        <option value="Ireland">Ireland</option> 
+        <option value="Israel">Israel</option> 
+        <option value="Italy">Italy</option> 
+        <option value="Jamaica">Jamaica</option> 
+        <option value="Japan">Japan</option> 
+        <option value="Jordan">Jordan</option> 
+        <option value="Kazakhstan">Kazakhstan</option> 
+        <option value="Kenya">Kenya</option> 
+        <option value="Kiribati">Kiribati</option> 
+        <option value="Korea, Democratic People's Republic of">Korea, Democratic People's Republic of</option> 
+        <option value="Korea, Republic of">Korea, Republic of</option> 
+        <option value="Kuwait">Kuwait</option> 
+        <option value="Kyrgyzstan">Kyrgyzstan</option> 
+        <option value="Lao People's Democratic Republic">Lao People's Democratic Republic</option> 
+        <option value="Latvia">Latvia</option> 
+        <option value="Lebanon">Lebanon</option> 
+        <option value="Lesotho">Lesotho</option> 
+        <option value="Liberia">Liberia</option> 
+        <option value="Libyan Arab Jamahiriya">Libyan Arab Jamahiriya</option> 
+        <option value="Liechtenstein">Liechtenstein</option> 
+        <option value="Lithuania">Lithuania</option> 
+        <option value="Luxembourg">Luxembourg</option> 
+        <option value="Macao">Macao</option> 
+        <option value="Macedonia, The Former Yugoslav Republic of">Macedonia, The Former Yugoslav Republic of</option> 
+        <option value="Madagascar">Madagascar</option> 
+        <option value="Malawi">Malawi</option> 
+        <option value="Malaysia">Malaysia</option> 
+        <option value="Maldives">Maldives</option> 
+        <option value="Mali">Mali</option> 
+        <option value="Malta">Malta</option> 
+        <option value="Marshall Islands">Marshall Islands</option> 
+        <option value="Martinique">Martinique</option> 
+        <option value="Mauritania">Mauritania</option> 
+        <option value="Mauritius">Mauritius</option> 
+        <option value="Mayotte">Mayotte</option> 
+        <option value="Mexico">Mexico</option> 
+        <option value="Micronesia, Federated States of">Micronesia, Federated States of</option> 
+        <option value="Moldova, Republic of">Moldova, Republic of</option> 
+        <option value="Monaco">Monaco</option> 
+        <option value="Mongolia">Mongolia</option> 
+        <option value="Montserrat">Montserrat</option> 
+        <option value="Morocco">Morocco</option> 
+        <option value="Mozambique">Mozambique</option> 
+        <option value="Myanmar">Myanmar</option> 
+        <option value="Namibia">Namibia</option> 
+        <option value="Nauru">Nauru</option> 
+        <option value="Nepal">Nepal</option> 
+        <option value="Netherlands">Netherlands</option> 
+        <option value="Netherlands Antilles">Netherlands Antilles</option> 
+        <option value="New Caledonia">New Caledonia</option> 
+        <option value="New Zealand">New Zealand</option> 
+        <option value="Nicaragua">Nicaragua</option> 
+        <option value="Niger">Niger</option> 
+        <option value="Nigeria">Nigeria</option> 
+        <option value="Niue">Niue</option> 
+        <option value="Norfolk Island">Norfolk Island</option> 
+        <option value="Northern Mariana Islands">Northern Mariana Islands</option> 
+        <option value="Norway">Norway</option> 
+        <option value="Oman">Oman</option> 
+        <option value="Pakistan">Pakistan</option> 
+        <option value="Palau">Palau</option> 
+        <option value="Palestinian Territory, Occupied">Palestinian Territory, Occupied</option> 
+        <option value="Panama">Panama</option> 
+        <option value="Papua New Guinea">Papua New Guinea</option> 
+        <option value="Paraguay">Paraguay</option> 
+        <option value="Peru">Peru</option> 
+        <option value="Philippines">Philippines</option> 
+        <option value="Pitcairn">Pitcairn</option> 
+        <option value="Poland">Poland</option> 
+        <option value="Portugal">Portugal</option> 
+        <option value="Puerto Rico">Puerto Rico</option> 
+        <option value="Qatar">Qatar</option> 
+        <option value="Reunion">Reunion</option> 
+        <option value="Romania">Romania</option> 
+        <option value="Russian Federation">Russian Federation</option> 
+        <option value="Rwanda">Rwanda</option> 
+        <option value="Saint Helena">Saint Helena</option> 
+        <option value="Saint Kitts and Nevis">Saint Kitts and Nevis</option> 
+        <option value="Saint Lucia">Saint Lucia</option> 
+        <option value="Saint Pierre and Miquelon">Saint Pierre and Miquelon</option> 
+        <option value="Saint Vincent and The Grenadines">Saint Vincent and The Grenadines</option> 
+        <option value="Samoa">Samoa</option> 
+        <option value="San Marino">San Marino</option> 
+        <option value="Sao Tome and Principe">Sao Tome and Principe</option> 
+        <option value="Saudi Arabia">Saudi Arabia</option> 
+        <option value="Senegal">Senegal</option> 
+        <option value="Serbia and Montenegro">Serbia and Montenegro</option> 
+        <option value="Seychelles">Seychelles</option> 
+        <option value="Sierra Leone">Sierra Leone</option> 
+        <option value="Singapore">Singapore</option> 
+        <option value="Slovakia">Slovakia</option> 
+        <option value="Slovenia">Slovenia</option> 
+        <option value="Solomon Islands">Solomon Islands</option> 
+        <option value="Somalia">Somalia</option> 
+        <option value="South Africa">South Africa</option> 
+        <option value="South Georgia and The South Sandwich Islands">South Georgia and The South Sandwich Islands</option> 
+        <option value="Spain">Spain</option> 
+        <option value="Sri Lanka">Sri Lanka</option> 
+        <option value="Sudan">Sudan</option> 
+        <option value="Suriname">Suriname</option> 
+        <option value="Svalbard and Jan Mayen">Svalbard and Jan Mayen</option> 
+        <option value="Swaziland">Swaziland</option> 
+        <option value="Sweden">Sweden</option> 
+        <option value="Switzerland">Switzerland</option> 
+        <option value="Syrian Arab Republic">Syrian Arab Republic</option> 
+        <option value="Taiwan, Province of China">Taiwan, Province of China</option> 
+        <option value="Tajikistan">Tajikistan</option> 
+        <option value="Tanzania, United Republic of">Tanzania, United Republic of</option> 
+        <option value="Thailand">Thailand</option> 
+        <option value="Timor-leste">Timor-leste</option> 
+        <option value="Togo">Togo</option> 
+        <option value="Tokelau">Tokelau</option> 
+        <option value="Tonga">Tonga</option> 
+        <option value="Trinidad and Tobago">Trinidad and Tobago</option> 
+        <option value="Tunisia">Tunisia</option> 
+        <option value="Turkey">Turkey</option> 
+        <option value="Turkmenistan">Turkmenistan</option> 
+        <option value="Turks and Caicos Islands">Turks and Caicos Islands</option> 
+        <option value="Tuvalu">Tuvalu</option> 
+        <option value="Uganda">Uganda</option> 
+        <option value="Ukraine">Ukraine</option> 
+        <option value="United Arab Emirates">United Arab Emirates</option> 
+        <option value="United Kingdom">United Kingdom</option> 
+        <option value="United States">United States</option> 
+        <option value="United States Minor Outlying Islands">United States Minor Outlying Islands</option> 
+        <option value="Uruguay">Uruguay</option> 
+        <option value="Uzbekistan">Uzbekistan</option> 
+        <option value="Vanuatu">Vanuatu</option> 
+        <option value="Venezuela">Venezuela</option> 
+        <option value="Viet Nam">Viet Nam</option> 
+        <option value="Virgin Islands, British">Virgin Islands, British</option> 
+        <option value="Virgin Islands, U.S.">Virgin Islands, U.S.</option> 
+        <option value="Wallis and Futuna">Wallis and Futuna</option> 
+        <option value="Western Sahara">Western Sahara</option> 
+        <option value="Yemen">Yemen</option> 
+        <option value="Zambia">Zambia</option> 
+        <option value="Zimbabwe">Zimbabwe</option>
       </select>
-
       <span class="error-field"></span>
     </div>
 
     <div class="form-line">
-      <label for="city">City:</label>
-      
-      <select name="city">
-        <option value="">Please select your city</option>
-        <option value="volvo">Volvo</option>
-        <option value="saab">Saab</option>
-        <option value="mercedes">Mercedes</option>
-        <option value="audi">Audi</option>
-      </select>
-
+      <label for="address">City:</label>
+      <input id="city-field" type="text" name="city" placeholder="Please enter your city" value="<%= req["city"] %>" data-err-type="field" data-validation-msg="city"/>
       <span class="error-field"></span>
+    </div>
+
+    <div class="form-line">
+      <label for="interests">For the Interest, please use the following:</label>
+      <label>
+        <input type="checkbox" name="interests[]" value="Games" />Games
+      </label>
+      <label>
+        <input type="checkbox" name="interests[]" value="Live events" />Live events
+      </label>
+      <label>
+        <input type="checkbox" name="interests[]" value="Movies" />Movies
+      </label>
+      <label>
+        <input type="checkbox" name="interests[]" value="Music" />Music
+      </label>
+      <label>
+        <input type="checkbox" name="interests[]" value="Reading" />Reading
+      </label>
+      <label>
+        <input type="checkbox" name="interests[]" value="Fitness" />Fitness
+      </label>
+      <label>
+        <input type="checkbox" name="interests[]" value="Arts" />Arts
+      </label>
+      <label>
+        <input type="checkbox" name="interests[]" value="Travel" />Travel
+      </label>
+
+      <input id="interests-hidden" type="hidden" data-err-type="interests" data-validation-msg="interests" data-bind="[name='interests[]']"/>
+      <div class="error-field"></div>
     </div>
     
     <div class="form-line">
       <input type="submit" value="UPLOAD &nbsp; &#9654;"/>
     </div>
     
-<!--     <label>
+    <label>
       <input type="checkbox" id="terms" data-err-type="terms" data-validation-msg="terms">
-      <span>Tick here to accept Terms and Conditions</span>
+      <span>
+        Tick here to accept 
+        <a href="#" id="show-terms">terms and conditions</a>
+      </span>
       <span class="error-field"></span>
     </label>
-    <div class="clear"></div> -->
+    <div class="clear"></div>
 
   </form>
 
 </div>
 <div class="right-part sprite sprite-jeans"></div>
 <div class="clear"></div>
+
+
+
+<div id="pop-up">
+  <div class="inner">
+    <a id="close-pop-up" href="#">&times;</a>
+    <div class="pop-up-content">
+      <h2 class="t-center subtitle">PRIVACY POLICY <br> FOR GAP IN LEBANON OPERATED BY FADEA S.A.L</h2>
+      <p align="justify">Last Revised April 21<sup>st</sup>, 2014</p>
+      
+      <p align="justify">GAP Incorporation and FADEA S.A.L and their affiliates, subsidiaries and sister companies are all referred to hereinafter as (“GAP”)</p>
+      
+      <ol>
+      <li>
+      <p align="justify"> TYPICAL INFORMATION WE COLLECT ABOUT YOU:</p>
+      </li>
+      </ol>
+      <ul>
+      <li>
+      <p align="justify">Name</p>
+      </li>
+      <li>
+      <p align="justify">Contact Information (email/phone/mailing address)</p>
+      </li>
+      </ul>
+      
+      <ol start="2">
+      <li>
+      <p align="justify">KEY WAYS WE USE YOUR INFORMATION:</p>
+      </li>
+      </ol>
+      <ul>
+      <li>
+      <p align="justify">Send you promotions and offers</p>
+      </li>
+      <li>
+      <p align="justify">Protect the security of our website, apps and business</p>
+      </li>
+      </ul>
+      
+      <ol start="3">
+      <li>
+      <p align="justify">WE SHARE YOUR INFORMATION WITH:</p>
+      </li>
+      </ol>
+      <ul>
+      <li>
+      <p align="justify">GAP Incorporation and FADEA S.A.L and with their affiliates, subsidiaries and sister companies.</p>
+      </li>
+      </ul>
+      
+      <ol start="4">
+      <li>
+      <p align="justify">YOUR CHOICES:</p>
+      </li>
+      </ol>
+      <ul>
+      <li>
+      <p align="justify">To opt out of receiving marketing via: Email -- use the unsubscribe feature in our emails, click on the unsubscribe weblinks for our brands, or contact <a href="mailto:marketing.lb@azadea.com">marketing.lb@azadea.com</a></p>
+      </li>
+      <li>
+      <p align="justify">Texts -- respond STOP to any text or contact <a href="mailto:marketing.lb@azadea.com">marketing.lb@azadea.com</a></p>
+      </li>
+      </ul>
+      
+      <ol start="5">
+      <li>
+      <p align="justify">QUESTIONS ABOUT PRIVACY?</p>
+      </li>
+      </ol>
+      <p align="justify">This policy describes the personal information GAP collects about you, why we collect it, how we use it, and when we share it with third parties. This policy covers our Lebanon stores and online.</p>
+      <p align="justify">Our policy also describes the choices you can make about how we collect and use your information. If our information practices change, we will post an updated policy on our Facebook page. You can tell if the policy has changed by checking the revision date that appears above. If we change the policy in a material way, we will provide appropriate notice to you. You may exercise your choices about how we collect and use your information consistent with this policy at any time.</p>
+      
+      <p align="justify">If you have any questions about our privacy policy, please contact us as described in the section entitled "How do I contact you?" below.</p>
+      <ul>
+      <li>
+      <p align="justify"><a href="http://www.gap.com/customerService/info.do?cid=2331#collectInfo"><span style="text-decoration: underline;">What kind of information does GAP Collect?</span></a></p>
+      </li>
+      <li>
+      <p align="justify"><a href="http://www.gap.com/customerService/info.do?cid=2331#useInfo"><span style="text-decoration: underline;">How does GAP use my information?</span></a></p>
+      </li>
+      <li>
+      <p align="justify"><a href="http://www.gap.com/customerService/info.do?cid=2331#shareInfo"><span style="text-decoration: underline;">Does GAP share my information?</span></a></p>
+      </li>
+      <li>
+      <p align="justify"><a href="http://www.gap.com/customerService/info.do?cid=2331#accessInfo"><span style="text-decoration: underline;">How do I access or change my information?</span></a></p>
+      </li>
+      <li>
+      <p align="justify"><a href="http://www.gap.com/customerService/info.do?cid=2331#choices"><span style="text-decoration: underline;">How do I make choices about receiving promotional communications?</span></a></p>
+      </li>
+      <li>
+      <p align="justify"><a href="http://www.gap.com/customerService/info.do?cid=2331#kidsPrivacy"><span style="text-decoration: underline;">How does GAP protect kids' privacy?</span></a></p>
+      </li>
+      <li>
+      <p align="justify"><a href="http://www.gap.com/customerService/info.do?cid=2331#interestAdvert"><span style="text-decoration: underline;">How is my information used for behavioral or targeted advertising and what choices do I have?</span></a></p>
+      </li>
+      <li>
+      <p align="justify"><a href="http://www.gap.com/customerService/info.do?cid=2331#secureInfo"><span style="text-decoration: underline;">How do I know my personal information is secure?</span></a></p>
+      </li>
+      <li>
+      <p align="justify"><a href="http://www.gap.com/customerService/info.do?cid=2331#phishing"><span style="text-decoration: underline;">What is "phishing"?</span></a></p>
+      </li>
+      <li>
+      <p align="justify"><a href="http://www.gap.com/customerService/info.do?cid=2331#suspicious"><span style="text-decoration: underline;">I received a suspicious email from a GAP Brand regarding an order I did not place. What should I do?</span></a></p>
+      </li>
+      <li>
+      <p align="justify"><a href="http://www.gap.com/customerService/info.do?cid=2331#jobpost"><span style="text-decoration: underline;">I responded to an online job posting for a GAP Job that requires me to upload personal financial information. Is this part of your hiring process?</span></a></p>
+      </li>
+      <li>
+      <p align="justify"><a href="http://www.gap.com/customerService/info.do?cid=2331#contactInfo"><span style="text-decoration: underline;">How do I contact you?</span></a></p>
+      </li>
+      <li>
+      <p align="justify"><a href="http://www.gap.com/customerService/info.do?cid=2331#caliRights"><span style="text-decoration: underline;">Your California Privacy Rights</span></a></p>
+      </li>
+      </ul>
+      <p align="justify"><a name="collectInfo"></a> </p>
+      <ol start="6">
+      <li>
+      <p align="justify">WHAT KIND OF INFORMATION DOES GAP COLLECT?</p>
+      </li>
+      </ol>
+      <p align="justify">We may collect personal information from you, such as your name, email address, postal address, phone number, credit card number, gender, birthday, personal interests, etc., when you visit Facebook page or stores, make an in-store purchase, save your information with us online, contact us with a question or concern, or participate in a contest, promotion, or survey. We maintain a record of your product interests and the purchases you make online, through a mobile app, or by phone and in our stores. We also collect information about the device you use to access our Facebook page or mobile apps such as your computer's IP address, your browser type, your operating system, and other technical information. Our mobile apps may also collect information about your location if you have allowed this. We may combine all of this information with information about you that we acquire from our joint marketing partners, from unrelated third parties, and from our other brands.</p>
+      <p align="justify"><a name="useInfo"></a> </p>
+      <ol start="7">
+      <li>
+      <p align="justify">HOW DOES GAP USE MY INFORMATION?</p>
+      </li>
+      </ol>
+      <p align="justify">We may use your personal information in the following ways:</p>
+      <ul>
+      <li>
+      <p align="justify">To communicate with you and to send you information by email, postal mail, telephone, text message, or other means about our products, services, contests, and promotions, unless you have directed us not to contact you with promotional communications</p>
+      </li>
+      <li>
+      <p align="justify">To administer and fulfill our contests and other promotions</p>
+      </li>
+      <li>
+      <p align="justify">To help us learn more about your shopping preferences</p>
+      </li>
+      <li>
+      <p align="justify">To help us address problems with and improve our site and mobile app design, products and services</p>
+      </li>
+      <li>
+      <p align="justify">To enhance your shopping experience</p>
+      </li>
+      <li>
+      <p align="justify">To analyze trends and statistics</p>
+      </li>
+      <li>
+      <p align="justify">To protect the security or integrity of our Facebook page</p>
+      </li>
+      <li>
+      <p align="justify">To contact you if necessary</p>
+      </li>
+      </ul>
+      
+      <p align="justify">You always have the choice not to receive marketing information or calls. For instructions on opting out, please see the below section entitled, "How do I make choices about receiving promotional communications?"</p>
+      <p align="justify"><a name="shareInfo"></a> </p>
+      <ol start="8">
+      <li>
+      <p align="justify">DOES GAP INC. SHARE MY INFORMATION?</p>
+      </li>
+      </ol>
+      <p align="justify">We may share your personal information in the following ways:</p>
+      <ul>
+      <li>
+      <p align="justify">When you provide personal information to one of our Gap Inc. Brands (Gap, Banana Republic, Old Navy, Gap Outlet, Banana Republic Factory Store, Piperlime, Athleta or Intermix), we may share that information with our other Gap Inc. Brands and/or with franchises, affiliates, subsidiaries and sister companies.</p>
+      </li>
+      <li>
+      <p align="justify">We may share your information with our service providers who manage our customer information and perform services on our behalf, such as fulfilling promotions, sending communications to our customers, conducting surveys, etc. We do not authorize any of these service providers to make any other use or disclosure of your information.</p>
+      </li>
+      <li>
+      <p align="justify">We may share your information when we team up with another company to offer or provide products, services, contests, or promotions to our customers.</p>
+      </li>
+      <li>
+      <p align="justify">We may share information about you if necessary, in our good faith judgment, to comply with laws or regulations or in response to a valid subpoena, order, or government request, or to protect the rights of Gap Inc. Or others.</p>
+      </li>
+      </ul>
+      
+      <p align="justify">In addition, if you choose to participate in any third-party scrip, loyalty, or similar program in which a Gap Inc. Brand is a participating vendor, and you authorize GAP or our credit card processor to provide information about your purchases to the company administering the program, we will share your personal information with that program. Scrip programs allow you to instruct us to divert a percentage of the amount you spend on GAP purchases to participating schools and other non-profit organizations. Loyalty programs allow you to earn "points" on purchases at Gap Inc. Brands, which you may then use toward certain rewards offered by the loyalty programs in which you participate. The information you authorize us to disclose to the third-party scrip or loyalty program may include your credit card number and the date and amount of your purchase, and may also include your name and other information you have asked us to provide.</p>
+      
+      <p align="justify">Please note that once we disclose this information, the scrip or loyalty company may use and share it with others in accordance with its own privacy policy. You should review these policies carefully, as we have no control over them. AND WE SHALL NOT BE LIABLE IN ANY WAY FOR ANY ABUSE OR UNAUTHORIZED USE. YOU FULLY AND IRREVOCABLLY WAIVE ANY RIGHTS AND INDEMNITIES AND COMPENSATIONS AGAINST GAP IN THIS RESPECT.</p>
+      <p align="justify">In the unlikely event of a sale or merger of Gap Inc. Or any of our businesses, our customers' personal information and other information we have collected as described in this policy may be among the transferred business assets.</p>
+      <p align="justify"><a name="accessInfo"></a> </p>
+      <ol start="9">
+      <li>
+      <p align="justify">HOW DO I ACCESS OR CHANGE MY INFORMATION?</p>
+      </li>
+      </ol>
+      <p align="justify">You can review and change certain personal information related to your use of our online sites (such as your name and contact information). Just send us an email to marketing.lb@azadea.com.</p>
+      <p align="justify">You can also ask us to update your personal information by contacting us as described in the below section entitled "How do I contact you?” Please note that any request to update your personal information may take up to 10 days for your email request and 6-8 weeks for your postal mail request.</p>
+      <p align="justify"><a name="choices"></a> </p>
+      <ol start="10">
+      <li>
+      <p align="justify">HOW DO I MAKE CHOICES ABOUT RECEIVING PROMOTIONAL COMMUNICATIONS?</p>
+      </li>
+      </ol>
+      <p align="justify">Gap Inc. And our brands, including Gap, Banana Republic, Old Navy, Gap Outlet, Banana Republic Factory Store, Piperlime, and Athleta, want to communicate with you only if you want to hear from us. If you prefer not to receive promotional information, such as information about special offers and sales events, from one or more of our brands, you can let us know by contacting our customer service as described below in the section entitled, "How do I contact you?" or you can click on the self-service unsubscribe links below.</p>
+      <p align="justify"><span style="text-decoration: underline;"><a href="https://secure-www.gap.com/profile/info.do?cid=82639">Gap unsubscribe</a><a href="https://secure-bananarepublic.gap.com/profile/info.do?cid=82771">banana Republic unsubscribe</a><a href="https://secure-bananarepublic.gap.com/profile/info.do?cid=82774">banana Republic Factory Store unsubscribe</a><a href="https://secure-www.gap.com/profile/info.do?cid=82641">gap Outlet unsubscribe</a><a href="https://secure-oldnavy.gap.com/profile/info.do?cid=82636">old Navy unsubscribe</a><a href="https://secure-athleta.gap.com/profile/info.do?cid=82633">athleta unsubscribe</a><a href="https://secure-piperlime.gap.com/profile/info.do?cid=82778">piperlime Unsubscribe</a></span></p>
+      
+      <p align="justify">If contacting customer service, please be sure to include your full name and the email address you used when you registered with or made a purchase from the Gap Inc. Brand. If you ask us to remove your name and address from promotional lists, we will maintain your name in a "do not contact" file to ensure that we can honor your request. It may take up to 10 days to process your email request and 6-8 weeks to process your postal mail request, during which period you may continue to receive communications from Gap Inc.</p>
+      
+      <p align="justify">If you change your mind, you can start receiving promotional communications from us again send us an email to <a href="mailto:marketing.lb@azadea.com">marketing.lb@azadea.com</a>, when you enter a sweepstakes or contest, or by contacting.</p>
+      <p align="justify"><a name="athleta"></a><a name="kidsPrivacy"></a> </p>
+      <ol start="11">
+      <li>
+      <p align="justify">HOW DOES GAP PROTECT KIDS' PRIVACY?</p>
+      </li>
+      </ol>
+      <p align="justify">GAP is concerned about the privacy and safety of children when they use the Internet. We will never knowingly request personally identifiable information online from anyone under the age of 13 without prior verifiable parental consent. Our Facebook page is general audience and is not targeted to or intended for use by children.</p>
+      <p align="justify"><a name="cookies"></a><a name="interestAdvert"></a> </p>
+      <ol start="12">
+      <li>
+      <p align="justify">HOW IS MY INFORMATION USED FOR BEHAVIORAL OR TARGETED ADVERTISING AND WHAT CHOICES DO I HAVE?</p>
+      </li>
+      </ol>
+      <p align="justify">We use our own cookies to help determine which of our ads are shown to you on other websites. To opt out of this targeted online advertising by Gap Inc. That utilizes our cookies, please click <a href="http://dtmc.gap.com/adinfo/adchoices_fpc.html?cid=2366&amp;cname=Gap%20Inc.&amp;cmagic=d3b1fb&amp;clogo=Gap_INC_LOGOS.png"><span style="text-decoration: underline;">here</span></a>.</p>
+      <p align="justify">We also work with third-party companies that use their tracking technologies (including cookies and pixel tags) on our websites in order to provide tailored advertisements on our behalf and on behalf of other advertisers across the Internet. These companies may collect information about your activity on our sites and your interaction with our advertising and other communications and use this information to determine which ads you see on third-party websites and applications. For more information about this practice and to understand your options including how to opt out of receiving these tailored advertisements, please visit <a href="http://www.aboutads.info/"><span style="text-decoration: underline;">http://www.aboutads.info</span></a>.</p>
+      <p align="justify">Please note that even if you opt-out, these tracking technologies may still collect data and you will still see ads, but they will not be targeted based upon the information collected through these tracking technologies.</p>
+      
+      <ol start="13">
+      <li>
+      <p align="justify"><a name="secureInfo"></a> HOW DO I KNOW MY PERSONAL INFORMATION IS SECURE?</p>
+      </li>
+      </ol>
+      <p align="justify">We do our best to provide you with a safe and convenient shopping experience. We have in place certain physical, electronic, contractual, and managerial safeguards to help protect the security and privacy of your personal information.</p>
+      <p align="justify">When you enter your personal information on our websites, we use encryption technology to protect your information as it is transmitted to us.</p>
+      
+      <ol start="14">
+      <li>
+      <p align="justify"><a name="phishing"></a> WHAT IS "PHISHING"?</p>
+      </li>
+      </ol>
+      <p align="justify">"Phishing" is a scam designed to steal your personal information. If you receive an email that looks like it is from us asking you for your personal information, do not respond. We will never request your password, user name, credit card information or other personal information through email.</p>
+      
+      <ol start="15">
+      <li>
+      <p align="justify"><a name="suspicious"></a><a name="jobpost"></a> I RESPONDED TO AN ONLINE JOB POSTING FOR A GAP INC. JOB THAT REQUIRES ME TO UPLOAD PERSONAL FINANCIAL INFORMATION. IS THIS PART OF YOUR HIRING PROCESS?</p>
+      </li>
+      </ol>
+      <p align="justify">No GAP does NOT ask prospective job applicants for information about their bank accounts, credit history or passwords to financial accounts. If you are asked for personal financial or security information in response to a job application, this is likely a fraudulent job listing hosted by spammers posing as GAP to mislead job applicants.</p>
+      <p align="justify">You can validate all GAP Job postings on <span style="text-decoration: underline;"><a href="http://www.gapinc.com/careers">gapinc.com/careers</a> or at www.azadea.com</span>. Spammers also create phony aliases such as thegap-usa.com to mimic our company and/or brand names in an effort to commit identity theft or other forms of fraud. If you receive this type of suspicious email activity, please if you are residing outside Lebanon alert the FBI's Internet Crimes Complaint Center: <span style="text-decoration: underline;"><a href="http://www.ic3.gov/default.aspx">http://www.ic3.gov/default.aspx</a>. </span>If you are in Lebanon, you can always refer to the prosecution department or attorney general’s office or to the competent authorities to defend and claim your rights.</p>
+      <p align="justify"><a name="links2OtherSites"></a> </p>
+      <ol start="16">
+      <li>
+      <p align="justify">WHAT ABOUT LINKS TO OTHER WEBSITES?</p>
+      </li>
+      </ol>
+      <p align="justify">For your convenience and information, our websites may contain links to other sites, which may have privacy policies that differ from our own. We are not responsible for the content or practices of any linked site. We recommend that you review the privacy policy of any site that you access through our sites. AND WE SHALL NOT BE LIABLE IN ANY WAY FOR ANY ABUSE OR UNAUTHORIZED USE. YOU FULLY AND IRREVOCABLLY WAIVE ANY RIGHTS AND INDEMNITIES AND COMPENSATIONS AGAINST GAP IN THIS RESPECT.</p>
+      
+      <ol start="17">
+      <li>
+      <p align="justify"><a name="contactInfo"></a> HOW DO I CONTACT YOU?</p>
+      </li>
+      </ol>
+      <p align="justify">For questions about our privacy policy, to make choices about receiving promotional communications, to update your personal information, you can contact any of our Gap Inc. Brands by email, telephone:</p>
+      <p align="justify">Gap – FADEA S.A.L</p>
+      <p align="justify">+961 1 857100</p>
+      <p align="justify"><a href="mailto:Marketing.lb@azadea.com">Marketing.lb@azadea.com</a></p>
+    </div>
+  </div>
+</div>
