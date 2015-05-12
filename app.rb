@@ -4,6 +4,7 @@ require "rack/csrf"
 require "cuba/render"
 require "tilt/erb"
 require 'spreadsheet'
+require 'axlsx'
 
 Cuba.use Rack::Static, urls: %w(/stylesheets /images /javascripts), root: "public"
 Cuba.use Rack::ShowExceptions
@@ -29,26 +30,38 @@ Cuba.define do
     end
 
     on "admin" do
-      
-      book = Spreadsheet::Workbook.new
-      sheet1 = book.create_worksheet :name => 'Users'
-
-      sheet1.row(0).concat %w{Id Name Mobile Email Address Country City Interests}
-
-      users = UserDAO.all
-      users.each_with_index do |user, index|
-        sheet1.row(index+1).push user[:id], user[:name], user[:mobile], user[:email], user[:address], user[:country], user[:city], user[:interests]
-      end
-      
-
       file_contents = StringIO.new
-      book.write file_contents
+      
+      #book = Spreadsheet::Workbook.new
+      #sheet1 = book.create_worksheet :name => 'Users'
+
+      #sheet1.row(0).concat %w{Id Name Mobile Email Address Country City Interests}
+
+      #users = UserDAO.all
+      #users.each_with_index do |user, index|
+      #  sheet1.row(index+1).push user[:id], user[:name], user[:mobile], user[:email], user[:address], user[:country], user[:city], user[:interests]
+      #end
+      
+
+      #book.write file_contents
+      p = Axlsx::Package.new
+      p.workbook.add_worksheet(:name => "Users") do |sheet|
+        sheet.add_row %w{Id Name Mobile Email Address Country City Interests}
+
+        users = UserDAO.all
+        users.each_with_index do |user, index|
+          sheet.add_row [ user[:id], user[:name], user[:mobile], user[:email], user[:address], user[:country], user[:city], user[:interests] ]
+        end
+
+      end
+
+      file_contents = p.to_stream
 
       res.headers["Pragma"] = "public"
       res.headers["Expires"] = "0"
       res.headers["Cache-Control"] = "must-revalidate, post-check=0, pre-check=0"
       res.headers["Content-Type"] = "application/vnd.ms-excel"
-      res.headers["Content-Disposition"] = "attachment; filename=\"Gap_Users.xls\";"
+      res.headers["Content-Disposition"] = "attachment; filename=\"Gap_Users.xlsx\";"
       res.headers["Content-Transfer-Encoding"] = "binary"
       res.write file_contents.read
     end
