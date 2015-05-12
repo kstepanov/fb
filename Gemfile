@@ -8,6 +8,7 @@ gem "sqlite3"
 gem "sequel"
 gem "thin"
 gem "spreadsheet"
+gem "axlsx"
 
 group :development do
   gem "capistrano", '~> 3.4.0'
